@@ -1,3 +1,4 @@
+let a = 0
 let xhr = XMLHttpRequest()
 xhr.open()//请求方式  地址  是否异步
 xhr.send()
