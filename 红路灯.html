@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul {
+
+            position: absolute;
+
+            width: 200px;
+
+            height: 200px;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+        }
+
+        /*画3个圆代表红绿灯*/
+
+        ul>li {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            opacity: 0.2;
+
+            display: inline-block;
+
+        }
+
+        /*执行时改变透明度*/
+
+        ul.red>#red,
+
+        ul.green>#green,
+
+        ul.yellow>#yellow {
+
+            opacity: 1.0;
+
+        }
+
+        /*红绿灯的三个颜色*/
+
+        #red {
+            background: red;
+        }
+
+        #yellow {
+            background: yellow;
+        }
+
+        #green {
+            background: green;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="traffic" class="">
+
+        <li id="green"></li>
+
+        <li id="yellow"></li>
+
+        <li id="red"></li>
+
+    </ul>
+</body>
+
+</html>
+<script>
+    function timeout(timer) {
+
+        return function () {
+
+            return new Promise(function (resolve, reject) {
+
+                setTimeout(resolve, timer)
+
+            })
+
+        }
+
+    }
+
+    var green = timeout(1000);
+
+    var yellow = timeout(1000);
+
+    var red = timeout(1000);
+
+    var traffic = document.getElementById("traffic");
+
+    (function restart() {
+
+        console.log("绿灯" + new Date().getSeconds()) //绿灯执行三秒 
+
+        traffic.className = 'green';
+
+        green()
+
+            .then(function () {
+
+                console.log("黄灯" + new Date().getSeconds()) //黄灯执行四秒
+
+                traffic.className = 'yellow';
+
+                return yellow();
+
+            })
+
+            .then(function () {
+
+                console.log("红灯" + new Date().getSeconds()) //红灯执行五秒
+
+                traffic.className = 'red';
+
+                return red();
+
+            }).then(function () {
+
+                restart()
+
+            })
+
+    })();
+</script>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .contain {
+            width: 1100px;
+            margin: auto;
+            height: 440px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contain .box {
+            width: 200%;
+            height: 80px;
+            margin: 100px auto;
+            white-space: nowrap;
+            position: absolute;
+            left: 0px;
+            top: 0;
+            animation: 12s move infinite linear;
+        }
+
+        .contain .box img {
+            box-sizing: border-box;
+            padding: 15px;
+            height: 100%;
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: -1158px;
+            }
+        }
+
+        .contain:hover .box {
+            animation-play-state: paused;
+            /*动画暂停播放*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="box">
+            <img src="./img/company1.png" alt="">
+            <img src="./img/company2.png" alt="">
+            <img src="./img/company3.png" alt="">
+            <img src="./img/company4.png" alt="">
+            <img src="./img/company5.png" alt="">
+            <img src="./img/company6.png" alt="">
+            <img src="./img/company7.png" alt="">
+            <img src="./img/company8.png" alt="">
+            <img src="./img/company9.png" alt="">
+            <img src="./img/company10.png" alt="">
+            <img src="./img/company1.png" alt="">
+            <img src="./img/company2.png" alt="">
+            <img src="./img/company3.png" alt="">
+            <img src="./img/company4.png" alt="">
+            <img src="./img/company5.png" alt="">
+            <img src="./img/company6.png" alt="">
+            <img src="./img/company7.png" alt="">
+            <img src="./img/company8.png" alt="">
+            <img src="./img/company9.png" alt="">
+            <img src="./img/company10.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./js/jquery.js"></script>
+<script>
+    // let contain = $('.contain');
+    // let box = contain.find('.box');
+    // let img = box.find('img');
+
+    // var len = img.length; // 图的个数
+    // var imgWidth = img.eq(0).width(); // 一个图的宽度
+    // box.css('width', (len) * imgWidth); // 给ul设置宽度
+    // // img.eq(0).clone().appendTo(box); // 复制第一个图，添加到最后
+    // // img.eq(1).clone().appendTo(box); // 复制第一个图，添加到最后
+
+    // var timer = null;
+    // var count = 0;
+
+    // timer = setInterval(auto, 1000);
+    // function auto() {
+    //     if (count >= len) {
+    //         count = 0;
+    //         box.css('left', -count * imgWidth);
+    //     }
+    //     count++;
+    //     box.animate({
+    //         left: -count * 100
+    //     }, 1000, 'linear')
+    // }
+</script>

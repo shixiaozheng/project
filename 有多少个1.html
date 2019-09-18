@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // bar();//报错
+    var foo = function bar(name) {
+        console.log("hello" + name);
+        console.log(bar);
+    };
+    //alert(typeof bar);
+    foo("world");//"hello"
+    console.log(bar);//undefined
+    // console.log(foo.toString());
+    // bar();//报错
+
+
+</script>

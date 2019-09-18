@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // 实现一个函数  clone ，可以对 t JavaScript  中的 5 5  种主要的数据类型（包 括
+    // Number 、 String 、 Object 、 Array 、 Boolean ）进行值复制
+    //  考察点 1：对于基本数据类型和引用数据类型在内存中存放的是值还是指针这一区
+    // 别是否清楚
+    //  考察点 2：是否知道如何判断一个变量是什么类型的
+    //  考察点 3：递归算法的设计
+    // 方法一：
+    Object.prototype.clone = function () {
+        var o = this.constructor === Array ? [] : {};
+        for (var e in this) {
+            o[e] = typeof this[e] === "object" ? this[e].clone() : this[e];
+        }
+        return o;
+    }
+
+    Object.prototype.clone = function () {
+        var o = this.constructor === Array ? [] : {}
+        for (var e in this) {
+            o[e] = typeof this[e] === 'object' ? this[e].clone() : this[e]
+        }
+        return o
+    }
+</script>
